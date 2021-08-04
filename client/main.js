@@ -4,9 +4,11 @@ import '../imports/ui/plugins'
 
 import App from '../imports/ui/App.vue'
 
+import router from './routes'
+
 Meteor.startup(() => {
   new Vue({
-    el: '#app',
-    ...App,
-  })
+    router,
+    render: (h)=>h(App)
+  }).$mount("#app");
 })
