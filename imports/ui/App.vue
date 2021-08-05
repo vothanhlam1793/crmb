@@ -1,33 +1,19 @@
 <template>
   <div>
-    <Contact  v-for="contact in contacts"
-      v-bind:contact="contact"
-    />
+  <div class="alert alert-secondary">
+    <router-link to="/">Main</router-link> |
+    <router-link to="/404">Error</router-link> |
+    <router-link to="/createContact">Contact</router-link>
+  </div>
+  <div>
+    <router-view></router-view>
+  </div>
   </div>
 </template>
 
 <script>
-import Contact from './components/contact/Contact.vue'
-
-import {ContactsCollection} from '../api/collections/Contact'
-
 export default {
-  components: {
-    Contact
-  },
-  data() {
-    return {
-
-    }
-  },
-  meteor: {
-    $subscribe:{
-      'contacts': []
-    },
-    contacts() {
-      return ContactsCollection.find({}).fetch();
-    }
-  }
+  
 }
 </script>
 
